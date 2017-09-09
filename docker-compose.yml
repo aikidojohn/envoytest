@@ -1,0 +1,34 @@
+version: "3"
+services:
+  discovery.rtrdc.net:
+    image: discovery
+    ports: 
+      - "8080:8080"
+  
+  foo01.rtrdc.net:
+    image: foo
+    depends_on:
+      - "discovery.rtrdc.net"
+    ports: 
+      - "7080:8080"
+
+  foo02.rtrdc.net:
+    image: foo
+    depends_on:
+      - "discovery.rtrdc.net"
+    ports: 
+      - "7081:8080"
+
+  bar01.rtrdc.net:
+    image: bar
+    depends_on:
+      - "discovery.rtrdc.net"
+    ports: 
+      - "6080:8080"
+
+  bar02.rtrdc.net:
+    image: bar
+    depends_on:
+      - "discovery.rtrdc.net"
+    ports: 
+      - "6081:8080"

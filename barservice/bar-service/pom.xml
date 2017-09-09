@@ -3,19 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>discovery-parent</artifactId>
-		<groupId>com.johnhite.discovery</groupId>
+		<artifactId>bar-parent</artifactId>
+		<groupId>com.johnhite.bar</groupId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>discovery-service</artifactId>
+	<artifactId>bar-service</artifactId>
 	<packaging>jar</packaging>
-	<name>discovery-service</name>
+	<name>bar-service</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.johnhite.discovery</groupId>
-			<artifactId>discovery-api</artifactId>
+			<groupId>com.johnhite.bar</groupId>
+			<artifactId>bar-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -28,9 +28,9 @@
 			<artifactId>dropwizard-http2</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.190</version>
+			<groupId>com.johnhite.discovery</groupId>
+			<artifactId>discovery-client</artifactId>
+			<version>0.1-SNAPSHOT</version>
 		</dependency>
 			
 		<dependency>
@@ -102,7 +102,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.johnhite.discovery.DiscoveryService</mainClass>
+									<mainClass>com.johnhite.bar.BarService</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

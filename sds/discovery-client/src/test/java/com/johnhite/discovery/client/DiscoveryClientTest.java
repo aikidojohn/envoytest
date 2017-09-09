@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.client.JerseyClient;
 import org.glassfish.jersey.client.JerseyClientBuilder;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ import com.johnhite.discovery.api.Host;
 
 public class DiscoveryClientTest {
 
+	@Ignore("This test requires a server running on localhost. Just used to execrise the server a bit")
 	@Test
 	public void test() throws Exception{
 		// Create a trust manager that does not validate certificate chains

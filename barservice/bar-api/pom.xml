@@ -2,30 +2,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>discovery-parent</artifactId>
-        <groupId>com.johnhite.discovery</groupId>
+        <artifactId>bar-parent</artifactId>
+        <groupId>com.johnhite.bar</groupId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>discovery-client</artifactId>
+    <artifactId>bar-api</artifactId>
     <packaging>jar</packaging>
-    <name>discovery-client</name>
+    <name>bar-api</name>
 
     <dependencies>
         <dependency>
-			<groupId>com.johnhite.discovery</groupId>
-			<artifactId>discovery-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-        <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-core</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-client</artifactId>
         </dependency>
 
         <!-- Dropwizard Testing -->
