@@ -25,6 +25,7 @@ public class FooClient {
 		return client.target(uri)
 				.path("/foo")
 				.request(MediaType.APPLICATION_JSON)
+				.header("Host", "foo.rtrdc.net")
 				.get(Foo.class);
 	}
 }

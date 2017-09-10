@@ -25,6 +25,7 @@ public class BarClient {
 		return client.target(uri)
 				.path("/bar")
 				.request(MediaType.APPLICATION_JSON)
+				.header("Host", "bar.rtrdc.net")
 				.get(Bar.class);
 	}
 }

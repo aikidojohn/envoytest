@@ -32,6 +32,12 @@
 			<artifactId>discovery-client</artifactId>
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.johnhite.bar</groupId>
+			<artifactId>bar-client</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
 			
 		<dependency>
 			<groupId>io.dropwizard</groupId>

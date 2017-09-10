@@ -19,7 +19,7 @@ public class BarService extends Application<BarServiceConfiguration> {
 	
 	@Override
 	public void run(BarServiceConfiguration config, Environment env) throws Exception {
-		AbstractBinder binder= new BarServiceBinder();
+		AbstractBinder binder= new BarServiceBinder(config, env);
 		env.jersey().register(binder);
 		env.jersey().register(BarResource.class);
 		

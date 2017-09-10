@@ -19,7 +19,7 @@ public class FooService extends Application<FooServiceConfiguration> {
 	
 	@Override
 	public void run(FooServiceConfiguration config, Environment env) throws Exception {
-		AbstractBinder binder= new FooServiceBinder();
+		AbstractBinder binder= new FooServiceBinder(config, env);
 		env.jersey().register(binder);
 		env.jersey().register(FooResource.class);
 		

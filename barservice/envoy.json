@@ -110,16 +110,14 @@
         "connect_timeout_ms": 250,
         "type": "sds",
         "service_name": "foo",
-        "lb_type": "round_robin",
-        "features": "http2"
+        "lb_type": "round_robin"
       },
       {
         "name": "bar",
         "connect_timeout_ms": 250,
         "type": "sds",
         "service_name": "bar",
-        "lb_type": "round_robin",
-        "features": "http2"
+        "lb_type": "round_robin"
       }
     ]
   }
