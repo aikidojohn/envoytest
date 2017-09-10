@@ -46,12 +46,12 @@ public class DiscoveryBundle<T extends DiscoveryEnabledConfiguration> implements
 		Host host = null;
 		
 		// Static configuration
-		if (dsconfig.getIp() != null) {
-			host = new Host(dsconfig.getIp(), dsconfig.getPort(), tags);
-			logger.info("[Discovery] Found node configuration {}:{}", dsconfig.getIp(), dsconfig.getPort());
-		}
+		//if (dsconfig.getIp() != null) {
+		host = new Host(dsconfig.getIp(), dsconfig.getPort(), tags);
+		logger.info("[Discovery] Found node configuration {}:{}", dsconfig.getIp() == null ? "[auto]" : dsconfig.getIp(), dsconfig.getPort());
+		//}
 		// Dynamic config via application connectors
-		else if (config.getServerFactory() instanceof DefaultServerFactory) {
+		/*else if (config.getServerFactory() instanceof DefaultServerFactory) {
 			DefaultServerFactory factory = (DefaultServerFactory)config.getServerFactory();
 			
 			ConnType bestType = ConnType.NONE;
@@ -88,7 +88,7 @@ public class DiscoveryBundle<T extends DiscoveryEnabledConfiguration> implements
 				host = new Host(bindHost, port, tags);
 				logger.info("[Discovery] Choosing {} connector at {}:{}", bestType.name(), bindHost == null ? "[auto]" : bindHost, port);
 			}
-		}
+		}*/
 		if (host == null) {
 			logger.error("[Discovery] Failed to find node configuration to register with discovery service.");
 			throw new RuntimeException("Invalid discovery configuration. Stopping.");

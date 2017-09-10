@@ -7,6 +7,10 @@ COPY bar-service/alpn-boot*.jar /opt/rtr/alpn-boot.jar
 COPY bar-service/keystore.jks /opt/rtr/keystore.jks
 COPY bar-service/production.yml /opt/rtr/production.yml
 COPY bar-service/start.sh /opt/rtr/start.sh
+COPY envoy.json /opt/rtr/envoy.json
 
 WORKDIR /opt/rtr
-CMD ["java", "-Xbootclasspath/p:/opt/rtr/alpn-boot.jar", "-jar", "/opt/rtr/bar-service.jar", "server", "/opt/rtr/production.yml"]
+RUN chmod +x start.sh
+
+#CMD ["java", "-Xbootclasspath/p:/opt/rtr/alpn-boot.jar", "-jar", "/opt/rtr/bar-service.jar", "server", "/opt/rtr/production.yml"]
+ENTRYPOINT ["./start.sh"]

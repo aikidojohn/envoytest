@@ -31,7 +31,7 @@ public abstract class DiscoveryEnabledConfiguration extends Configuration {
 		@NotNull
 		private String cluster;
 		private String ip;
-		private Integer port;
+		private Integer port = 9001;
 		private String az;
 		private boolean canary = false;
 		private int loadBalancingWeight = 1;
