@@ -26,6 +26,13 @@
             },
             "filters": [
               {
+                "type": "both",
+                "name": "health_check",
+                "config": {
+                  "pass_through_mode": true, "endpoint": "/healthcheck"
+                }
+              },
+              {
                 "type": "decoder",
                 "name": "router",
                 "config": {}

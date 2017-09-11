@@ -10,10 +10,6 @@ import com.johnhite.discovery.client.DiscoveryEnabledConfiguration.DiscoveryServ
 
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.client.JerseyClientBuilder;
-import io.dropwizard.jetty.ConnectorFactory;
-import io.dropwizard.jetty.HttpConnectorFactory;
-import io.dropwizard.jetty.HttpsConnectorFactory;
-import io.dropwizard.server.DefaultServerFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -88,15 +84,16 @@ public class DiscoveryBundle<T extends DiscoveryEnabledConfiguration> implements
 				host = new Host(bindHost, port, tags);
 				logger.info("[Discovery] Choosing {} connector at {}:{}", bestType.name(), bindHost == null ? "[auto]" : bindHost, port);
 			}
-		}*/
+		}
 		if (host == null) {
 			logger.error("[Discovery] Failed to find node configuration to register with discovery service.");
 			throw new RuntimeException("Invalid discovery configuration. Stopping.");
-		}
+		}*/
 		
 		final Client jerseyClient = new JerseyClientBuilder(env).using(dsconfig).build("sds");
 		final DiscoveryClient client = new DiscoveryClient(dsconfig.getUrl(), jerseyClient);
 		env.lifecycle().manage(new ServiceDiscoveryLifecycle(client, host, dsconfig.getCluster()));
+		env.jersey().register(new DiscoveryHealthcheckResource());
 	}
 
 }
