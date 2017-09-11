@@ -3,7 +3,7 @@ RUN apk update
 RUN apk add redis
 RUN apk add openjdk8
 
-COPY discovery-service/target/discovery-service*.jar /opt/rtr/discovery-service.jar
+COPY discovery-service/target/discovery-service*SNAPSHOT.jar /opt/rtr/discovery-service.jar
 COPY discovery-service/alpn-boot*.jar /opt/rtr/alpn-boot.jar
 COPY discovery-service/keystore.jks /opt/rtr/keystore.jks
 COPY discovery-service/production.yml /opt/rtr/production.yml

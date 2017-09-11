@@ -117,14 +117,34 @@
         "connect_timeout_ms": 250,
         "type": "sds",
         "service_name": "foo",
-        "lb_type": "round_robin"
+        "lb_type": "round_robin",
+        "health_check": {
+          "type": "http",
+          "timeout_ms": 100,
+          "interval_ms": 1000,
+          "unhealthy_threshold": 3,
+          "healthy_threshold": 2,
+          "path":"/healthcheck",
+          "interval_jitter_ms": 250,
+          "service_name": "foo"
+        }
       },
       {
         "name": "bar",
         "connect_timeout_ms": 250,
         "type": "sds",
         "service_name": "bar",
-        "lb_type": "round_robin"
+        "lb_type": "round_robin",
+        "health_check": {
+          "type": "http",
+          "timeout_ms": 100,
+          "interval_ms": 1000,
+          "unhealthy_threshold": 3,
+          "healthy_threshold": 2,
+          "path":"/healthcheck",
+          "interval_jitter_ms": 250,
+          "service_name": "bar"
+        }
       }
     ]
   }
