@@ -33,11 +33,11 @@
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
 		
-		<dependency>
+		<!--  dependency>
 			<groupId>com.johnhite.foo</groupId>
 			<artifactId>foo-client</artifactId>
 			<version>0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency -->
 			
 		<dependency>
 			<groupId>io.dropwizard</groupId>

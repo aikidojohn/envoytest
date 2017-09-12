@@ -5,7 +5,6 @@ import javax.inject.Singleton;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
 import com.johnhite.bar.resources.BarResource;
-import com.johnhite.foo.client.FooClient;
 
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.setup.Environment;
@@ -22,8 +21,8 @@ public class BarServiceBinder extends AbstractBinder {
 	@Override
 	protected void configure() {
 		final JerseyClientBuilder cb = new JerseyClientBuilder(env);
-		final FooClient fooclient = new FooClient("http://localhost:9211", cb.build("foo-client"));
-		bind(fooclient).to(FooClient.class);
+		//final FooClient fooclient = new FooClient("http://localhost:9211", cb.build("foo-client"));
+		//bind(fooclient).to(FooClient.class);
 		bind(BarResource.class).to(BarResource.class).in(Singleton.class);
 	}
 

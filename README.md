@@ -34,7 +34,7 @@ Running
 To start the demo, from the repository root
 
 ```
-docker-compose up -b
+docker-compose up -d
 ```
 
 This will start containers for the discovery service, two foo services, two bar services and a bastion host with http2 enabled curl. You can view the running containers with

@@ -1,6 +1,5 @@
 package com.johnhite.bar.resources;
 
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,19 +12,18 @@ import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.annotation.Timed;
 import com.johnhite.bar.api.Bar;
-import com.johnhite.foo.client.FooClient;
 
 @Path("/bar")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class BarResource {
 	private static final Logger logger = LoggerFactory.getLogger(BarResource.class);
-	private final FooClient foo;
+	//private final FooClient foo;
 	
-	@Inject 
+	/*@Inject 
 	public BarResource(FooClient foo) {
 		this.foo = foo;
-	}
+	}*/
 	
 	@Timed
 	@GET
@@ -34,11 +32,11 @@ public class BarResource {
 		return Response.ok(new Bar()).build();
 	}
 	
-	@Timed
+	/*@Timed
 	@GET
 	@Path("/foo")
 	public Response getFoo() {
 		logger.info("Bar: [get Foo]");
 		return Response.ok(foo.getFoo()).build();
-	}
+	}*/
 }
