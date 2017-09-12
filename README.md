@@ -56,10 +56,10 @@ b06aeba51a67        bastion             "tail -f /etc/hosts"     10 hours ago   
 ```
 The containers all have their envoy port (9001) mapped to a local port for convenience.
 
-foo01 - 9001
-foo02 - 9002
-bar01 - 9003
-bar02 - 9004
+* foo01 - 9001
+* foo02 - 9002
+* bar01 - 9003
+* bar02 - 9004
 
 The sds is mapped to local port 8080.
 
@@ -107,7 +107,7 @@ Terminal 1
 
 Terminal 2
 > docker exec -it envoytest_bar02.rtrdc.net_1 tail -f /var/log/rtr/application.log
-
+```
 
 Now start curling an endpoint in a loop. We'll curl both foo services /foo/bar endpoints every second. These endpoints hit both Foo and Bar services.
 
