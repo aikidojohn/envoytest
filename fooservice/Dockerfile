@@ -1,6 +1,6 @@
 FROM lyft/envoy-alpine:040f4481b31069d50ea647b6c8d5610537dffa0f
 RUN apk update
-RUN apk add openjdk8
+RUN apk add openjdk8 curl
 
 COPY foo-service/target/foo-service*SNAPSHOT.jar /opt/rtr/foo-service.jar
 COPY foo-service/alpn-boot*.jar /opt/rtr/alpn-boot.jar

@@ -1,7 +1,7 @@
 FROM lyft/envoy-alpine:040f4481b31069d50ea647b6c8d5610537dffa0f
 RUN apk update
 RUN apk add redis
-RUN apk add openjdk8
+RUN apk add openjdk8 curl
 
 COPY discovery-service/target/discovery-service*SNAPSHOT.jar /opt/rtr/discovery-service.jar
 COPY discovery-service/alpn-boot*.jar /opt/rtr/alpn-boot.jar
