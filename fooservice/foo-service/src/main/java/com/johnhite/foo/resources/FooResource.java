@@ -21,11 +21,11 @@ import com.johnhite.foo.api.Foo;
 public class FooResource {
 	private static final Logger logger = LoggerFactory.getLogger(FooResource.class);
 	
-	private final BarClient bar;
+	private final BarClient barClient;
 
 	@Inject 
 	public FooResource(BarClient bar) {
-		this.bar = bar;
+		this.barClient = bar;
 	}
 	
 	@Timed
@@ -40,7 +40,7 @@ public class FooResource {
 	@Path("/bar")
 	public Response getBar() {
 		logger.info("Foo: [get Bar]");
-		return Response.ok(bar.getBar()).build();
+		return Response.ok(barClient.getBar()).build();
 	}
 	
 }

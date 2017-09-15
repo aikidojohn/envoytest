@@ -1,16 +1,31 @@
 version: "3"
 services:
-  discovery.rtrdc.net:
+  discovery01.rtrdc.net:
     image: discovery
-    hostname: discovery.rtrdc.net
+    hostname: discovery01.rtrdc.net
     ports:
       - "8080:8080"
+    networks:
+      default:
+        aliases:
+          - discovery.rtrdc.net
+
+  discovery02.rtrdc.net:
+    image: discovery
+    hostname: discovery02.rtrdc.net
+    ports:
+      - "8081:8080"
+    networks:
+      default:
+        aliases:
+          - discovery.rtrdc.net
 
   foo01.rtrdc.net:
     image: foo
     hostname: foo01.rtrdc.net
     depends_on:
-      - "discovery.rtrdc.net"
+      - "discovery01.rtrdc.net"
+      - "discovery02.rtrdc.net"
     ports:
       - "7080:8080"
       - "9001:9001"
@@ -19,7 +34,8 @@ services:
     image: foo
     hostname: foo02.rtrdc.net
     depends_on:
-      - "discovery.rtrdc.net"
+      - "discovery01.rtrdc.net"
+      - "discovery02.rtrdc.net"
     ports:
       - "7081:8080"
       - "9002:9001"
@@ -28,7 +44,8 @@ services:
     image: bar
     hostname: bar01.rtrdc.net
     depends_on:
-      - "discovery.rtrdc.net"
+      - "discovery01.rtrdc.net"
+      - "discovery02.rtrdc.net"
     ports:
       - "6080:8080"
       - "9003:9001"
@@ -37,7 +54,8 @@ services:
     image: bar
     hostname: bar02.rtrdc.net
     depends_on:
-      - "discovery.rtrdc.net"
+      - "discovery01.rtrdc.net"
+      - "discovery02.rtrdc.net"
     ports:
       - "6081:8080"
       - "9004:9001"

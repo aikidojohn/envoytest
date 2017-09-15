@@ -58,7 +58,7 @@ public class DiscoveryV1Resource {
 			host = new Host(remoteIp, host.getPort(), host.getTags());
 		}
 		storage.storeHost(serviceName, host);
-		return Response.ok().build();
+		return Response.ok(host).build();
 	}
 	
 	@Timed
