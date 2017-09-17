@@ -69,7 +69,7 @@
     }
   ],
   "admin": {
-    "access_log_path": "/tmp/envoy-access-log",
+    "access_log_path": "/var/log/envoy/envoy-access-log",
     "address": "tcp://127.0.0.1:8001"
   },
   "cluster_manager": {
