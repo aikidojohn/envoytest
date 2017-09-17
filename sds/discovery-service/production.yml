@@ -46,3 +46,5 @@ logging:
       archivedFileCount: 7
       timeZone: UTC
       maxFileSize: 10MB
+      
+hostFile: hosts.conf

@@ -92,7 +92,7 @@ public class DiscoveryBundle<T extends DiscoveryEnabledConfiguration> implements
 		
 		final Client jerseyClient = new JerseyClientBuilder(env).using(dsconfig).build("sds");
 		final DiscoveryClient client = new DiscoveryClient(dsconfig.getUrl(), jerseyClient);
-		env.lifecycle().manage(new ServiceDiscoveryLifecycle(client, host, dsconfig.getCluster()));
+		//env.lifecycle().manage(new ServiceDiscoveryLifecycle(client, host, dsconfig.getCluster()));
 		env.jersey().register(new DiscoveryHealthcheckResource());
 	}
 

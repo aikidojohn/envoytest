@@ -5,6 +5,10 @@ services:
     hostname: discovery.rtrdc.net
     ports:
       - "8080:8080"
+    networks:
+      default:
+        aliases:
+          - "cds.rtrdc.net"
 
   foo01.rtrdc.net:
     image: foo

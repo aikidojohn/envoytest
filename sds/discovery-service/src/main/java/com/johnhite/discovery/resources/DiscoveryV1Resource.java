@@ -38,6 +38,20 @@ public class DiscoveryV1Resource {
 	public Response getRegistration(@PathParam("serviceName") String serviceName) {
 		return Response.ok(storage.getHosts(serviceName)).build();
 	}
+
+	@Timed
+	@GET
+	@Path("clusters/{cluster}/{nodeName}")
+	public Response getClusters(@PathParam("cluster") String cluster, @PathParam("nodeName") String nodeName) {
+		return Response.ok(storage.getClusters(cluster, nodeName)).build();
+	}
+	
+	@Timed
+	@GET
+	@Path("routes/{confName}/{cluster}/{nodeName}")
+	public Response getRoutes(@PathParam("confName") String confName, @PathParam("cluster") String cluster, @PathParam("nodeName") String nodeName) {
+		return Response.ok(storage.getRoutes(confName, cluster, nodeName)).build();
+	}
 	
 	@Timed
 	@POST

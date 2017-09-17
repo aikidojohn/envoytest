@@ -12,7 +12,7 @@ public class DiscoveryService extends Application<DiscoveryServiceConfiguration>
 
 	@Override
 	public void run(DiscoveryServiceConfiguration config, Environment env) throws Exception {
-		AbstractBinder binder= new DiscoveryServiceBinder();
+		AbstractBinder binder= new DiscoveryServiceBinder(config);
 		env.jersey().register(binder);
 		env.jersey().register(DiscoveryV1Resource.class);
 		

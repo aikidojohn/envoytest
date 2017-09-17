@@ -7,8 +7,10 @@ COPY discovery-service/target/discovery-service*SNAPSHOT.jar /opt/rtr/discovery-
 COPY discovery-service/alpn-boot*.jar /opt/rtr/alpn-boot.jar
 COPY discovery-service/keystore.jks /opt/rtr/keystore.jks
 COPY discovery-service/production.yml /opt/rtr/production.yml
+COPY discovery-service/hosts.conf /opt/rtr/hosts.conf
 COPY discovery-service/start.sh /opt/rtr/start.sh
 
 WORKDIR /opt/rtr
-CMD ["java", "-Xbootclasspath/p:/opt/rtr/alpn-boot.jar", "-jar", "/opt/rtr/discovery-service.jar", "server", "/opt/rtr/production.yml"]
-
+RUN chmod +x start.sh
+#CMD ["java", "-Xbootclasspath/p:/opt/rtr/alpn-boot.jar", "-jar", "/opt/rtr/discovery-service.jar", "server", "/opt/rtr/production.yml"]
+ENTRYPOINT ["./start.sh"]

@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.Lists;
+import com.johnhite.discovery.api.Cluster;
+import com.johnhite.discovery.api.ClusterArray;
 import com.johnhite.discovery.api.Host;
 import com.johnhite.discovery.api.HostArray;
+import com.johnhite.discovery.api.RouteConfiguration;
 
 import jersey.repackaged.com.google.common.collect.Maps;
 
@@ -21,6 +24,13 @@ public class MemoryStorage implements Storage {
 		}
 		return h;
 	}
+	
+	@Override
+	public ClusterArray getClusters(String clusterName, String nodeName) {
+		Cluster cluster = new Cluster(clusterName, clusterName, "sds");
+		return new ClusterArray(new Cluster[]{cluster});
+	}
+	
 
 	@Override
 	public void storeHost(String service, Host host) {
@@ -66,6 +76,12 @@ public class MemoryStorage implements Storage {
 				this.hosts.put(service, new HostArray(hosts.toArray(new Host[]{})));
 			}
 		}
+	}
+
+	@Override
+	public RouteConfiguration getRoutes(String configName, String cluster, String node) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

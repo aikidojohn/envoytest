@@ -1,3 +1,5 @@
 #!/bin/sh
-nohup java -Xbootclasspath/p:/opt/rtr/alpn-boot.jar -jar /opt/rtr/discovery-service.jar server /opt/rtr/production.yml &
-sleep 5
+mkdir /var/log/rtr
+touch /var/log/rtr/application.log
+/usr/bin/java -Xbootclasspath/p:/opt/rtr/alpn-boot.jar -jar discovery-service.jar server production.yml &
+tail -f /var/log/rtr/application.log
